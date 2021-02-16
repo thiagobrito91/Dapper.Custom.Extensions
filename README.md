@@ -9,12 +9,14 @@ Conforme descrito abaixo é possível ver a existência de um terceiro parâmetr
 caso a condição for verdadeira o filtro em questão será aplicado.
 
 **Where**
+
 _sqlBuilder.Where("Id = @Id", pessoa.Id, **pessoa.Id.GreaterThanZero()**);
 
 **Set**
+
 _sqlBuilder.Set("Nome = @Nome", pessoa.Nome, **pessoa.Nome.IsNotNullOrEmpty()**);
 
-# Exemplo 
+# Exemplo - Utilizando as extensões Where e Set
 
     public class PessoaQuery
     {
@@ -73,3 +75,47 @@ _sqlBuilder.Set("Nome = @Nome", pessoa.Nome, **pessoa.Nome.IsNotNullOrEmpty()**)
             }
         }
     }
+    
+    # Exemplo - Sem o uso das extenões Where e Set
+    
+    Conforme pode ser visto no método abaixo, o número de IFs é muito grande e aumenta significativamente o número de linhas, dificultlado a leitura do código.
+    
+        public void UpdatePessoa_SemExtension(Pessoa pessoa)
+        {
+            Template template = _sqlBuilder.AddTemplate(SQL_UPDATE);
+
+            //Filters
+
+            if (pessoa.IsNull())
+                return;
+
+            //Set           
+            if (!string.IsNullOrEmpty(pessoa.Nome))
+            {
+                _sqlBuilder.Set("Nome = @Nome", pessoa.Nome);
+            }
+
+            if (!string.IsNullOrEmpty(pessoa.Sobrenome))
+            {
+                _sqlBuilder.Set("Sobrenome = @Sobrenome", pessoa.Sobrenome);
+            }
+
+            if (pessoa.Idade > 0)
+            {
+                _sqlBuilder.Set("Idade = @Idade", pessoa.Idade);
+            }
+
+            if (pessoa.Altura > 0)
+            {
+                _sqlBuilder.Set("Altura = @Altura", pessoa.Altura);
+            }
+
+            //Where
+            _sqlBuilder.Where("Id = @Id", pessoa.Id);
+
+            //Query
+            using (var conn = new SqlConnection("ConnectioString"))
+            {
+                conn.Execute(template.RawSql, template.Parameters);
+            }
+        }
