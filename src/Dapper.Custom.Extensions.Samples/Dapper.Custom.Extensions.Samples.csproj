@@ -11,7 +11,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\src\Dapper.Custom.Extentions.Lib\Dapper.Custom.Extentions.Lib.csproj" />
+		<ProjectReference Include="..\Dapper.Custom.Extensions.Lib\Dapper.Custom.Extensions.Lib.csproj" />
 	</ItemGroup>
 
 </Project>

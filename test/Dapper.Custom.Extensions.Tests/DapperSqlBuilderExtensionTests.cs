@@ -1,10 +1,10 @@
-﻿using Dapper.Custom.Extentions.Lib;
+﻿using Dapper.Custom.Extensions.Lib;
 using FluentAssertions;
 using System;
 using Xunit;
 using static Dapper.SqlBuilder;
 
-namespace Dapper.Custom.Extentions.Tests
+namespace Dapper.Custom.Extensions.Tests
 {
     public class DapperSqlBuilderExtensionTests
     {

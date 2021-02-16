@@ -1,9 +1,9 @@
-﻿using Dapper.Custom.Extentions.Lib;
+﻿using Dapper.Custom.Extensions.Lib;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using static Dapper.SqlBuilder;
 
-namespace Dapper.Custom.Extentions.Samples
+namespace Dapper.Custom.Extensions.Samples
 {
     public class PessoaQuery
     {

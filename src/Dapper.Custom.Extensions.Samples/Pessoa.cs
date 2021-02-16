@@ -1,4 +1,4 @@
-﻿namespace Dapper.Custom.Extentions.Samples
+﻿namespace Dapper.Custom.Extensions.Samples
 {
     public class Pessoa
     {

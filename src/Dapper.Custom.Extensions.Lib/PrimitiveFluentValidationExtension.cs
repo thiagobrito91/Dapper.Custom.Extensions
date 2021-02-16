@@ -1,4 +1,4 @@
-﻿namespace Dapper.Custom.Extentions.Lib
+﻿namespace Dapper.Custom.Extensions.Lib
 {
     public static class PrimitiveFluentValidationExtension
     {

@@ -1,7 +1,7 @@
-﻿using Dapper.Custom.Extentions.Lib;
+﻿using Dapper.Custom.Extensions.Lib;
 using Xunit;
 
-namespace Dapper.Custom.Extentions.Tests
+namespace Dapper.Custom.Extensions.Tests
 {
     public class PrimitiveFluentValidationExtensionTests
     {
