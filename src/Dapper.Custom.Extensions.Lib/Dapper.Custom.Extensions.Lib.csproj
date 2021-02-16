@@ -3,11 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 	  <TargetFramework>netcoreapp3.0</TargetFramework>
-	  <PackageId>DapperCustomExtensions</PackageId>
+	  <PackageId>Dapper.Custom.Extensions</PackageId>
 	  <Version>1.0.1</Version>
-	  <Authors>tbritodias91</Authors>
+	  <Authors>Thiago de Brito</Authors>
 	  <Company>GitHub</Company>
-	  <PackageDescription>Pacote exntensão complementar ao Dapper.SqlBuilder!</PackageDescription>
+	  <PackageDescription>Pacote de extensão complementar ao Dapper.SqlBuilder!</PackageDescription>
 	  <RepositoryUrl>https://github.com/thiagobrito91/Dapper.Custom.Extensions</RepositoryUrl>
   </PropertyGroup>
 
