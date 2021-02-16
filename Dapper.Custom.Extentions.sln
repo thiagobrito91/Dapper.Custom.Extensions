@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Custom.Extentions.Tests", "test\Dapper.Custom.Extentions.Tests\Dapper.Custom.Extentions.Tests.csproj", "{A43A93A2-F3A3-4731-A0E3-70A4CF352B3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper.Custom.Extentions.Lib", "src\Dapper.Custom.Extentions.Lib\Dapper.Custom.Extentions.Lib.csproj", "{D45A4360-EEB0-4F30-BC7F-14AEF68FE629}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dapper.Custom.Extentions.Lib", "src\Dapper.Custom.Extentions.Lib\Dapper.Custom.Extentions.Lib.csproj", "{D45A4360-EEB0-4F30-BC7F-14AEF68FE629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapper.Custom.Extentions.Samples", "src\Dapper.Custom.Extentions.Samples\Dapper.Custom.Extentions.Samples.csproj", "{160522BB-0FA4-4F31-95A5-C6A0A1519744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D45A4360-EEB0-4F30-BC7F-14AEF68FE629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D45A4360-EEB0-4F30-BC7F-14AEF68FE629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D45A4360-EEB0-4F30-BC7F-14AEF68FE629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160522BB-0FA4-4F31-95A5-C6A0A1519744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160522BB-0FA4-4F31-95A5-C6A0A1519744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160522BB-0FA4-4F31-95A5-C6A0A1519744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160522BB-0FA4-4F31-95A5-C6A0A1519744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

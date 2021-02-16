@@ -135,4 +135,5 @@ namespace Dapper.Custom.Extentions.Tests
             _templateSelect.RawSql.Should().Contain(where);
         }
     }
+
 }
