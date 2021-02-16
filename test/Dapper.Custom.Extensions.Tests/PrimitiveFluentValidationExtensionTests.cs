@@ -271,7 +271,6 @@ namespace Dapper.Custom.Extensions.Tests
         }
 
         #endregion
-
     }
 
 }
