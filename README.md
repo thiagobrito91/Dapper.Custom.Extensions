@@ -76,7 +76,7 @@ _sqlBuilder.Set("Nome = @Nome", pessoa.Nome, **pessoa.Nome.IsNotNullOrEmpty()**)
         }
     }
 
-   # Exemplo - Sem o uso das extenões Where e Set
+   # Exemplo - Sem o uso das extensões Where e Set
     
     Conforme pode ser visto no método abaixo, o número de IFs é muito grande e aumenta significativamente o número de linhas, dificultlado a leitura do código.
     
