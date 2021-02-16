@@ -1,4 +1,4 @@
-# Dapper.Custom.Extentions
+# Dapper.Custom.Extentions ![.NET](https://github.com/thiagobrito91/Dapper.Custom.Extensions/workflows/.NET/badge.svg)
 
 
 
