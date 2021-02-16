@@ -1,21 +1,20 @@
+
 # Dapper.Custom.Extentions ![.NET](https://github.com/thiagobrito91/Dapper.Custom.Extensions/workflows/.NET/badge.svg)
 
 
 
-O **Dapper.Custom.Extentions** é um pacote de extensão complementar para o [**Dapper.SqlBuilder**](https://www.nuget.org/packages/Dapper.SqlBuilder/), que visa facilitar na criação de filtros e parâmetros dinâmicos diminuindo a quantidade de IFs nos filtros.
+O **Dapper.Custom.Extentions** é um pacote de extensão complementar para o [**Dapper.SqlBuilder**](https://www.nuget.org/packages/Dapper.SqlBuilder/), que visa facilitar na criação de filtros e parâmetros de update dinâmicos diminuindo a quantidade de IFs nos filtros.
 
+Conforme descrito abaixo é possível ver a existência de um terceiro parâmetro boleano, que indica que
+caso a condição for verdadeira o filtro em questão será aplicado.
 
-# Exemplos
+**Where**
+_sqlBuilder.Where("Id = @Id", pessoa.Id, **pessoa.Id.GreaterThanZero()**);
 
-    public class Pessoa
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Sobrenome { get; set; }
-        public int Idade { get; set; }
-        public double Altura { get; set; }
-    }
+**Set**
+_sqlBuilder.Set("Nome = @Nome", pessoa.Nome, **pessoa.Nome.IsNotNullOrEmpty()**);
 
+# Exemplo 
 
     public class PessoaQuery
     {
@@ -26,47 +25,8 @@ O **Dapper.Custom.Extentions** é um pacote de extensão complementar para o [**
         {
             _sqlBuilder = new SqlBuilder();
         }
-
-        public IEnumerable<Pessoa> ObterPessoas_SemExtension(Pessoa pessoa)
-        {
-            Template template = _sqlBuilder.AddTemplate(SQL_SELECT);
-
-            //Filters
-            if (pessoa.Id > 0)
-            {
-                _sqlBuilder.Where("Id = @Id", pessoa.Id);
-            }
-
-            if (!string.IsNullOrEmpty(pessoa.Nome))
-            {
-                _sqlBuilder.Where("Nome = @Nome", pessoa.Nome);
-            }
-
-            if (!string.IsNullOrEmpty(pessoa.Sobrenome))
-            {
-                _sqlBuilder.Where("Sobrenome = @Sobrenome", pessoa.Sobrenome);
-            }
-
-            if (pessoa.Idade > 0)
-            {
-                _sqlBuilder.Where("Idade = @Idade", pessoa.Idade);
-            }
-
-            if (pessoa.Altura > 0)
-            {
-                _sqlBuilder.Where("Altura = @Altura", pessoa.Altura);
-            }
-
-            //Query
-            using (var conn = new SqlConnection("ConnectioString"))
-            {
-                var results = conn.Query<Pessoa>(template.RawSql, template.Parameters);
-
-                return results;
-            }
-        }
-
-        public IEnumerable<Pessoa> ObterPessoas_ComExtension(Pessoa pessoa)
+        
+        public IEnumerable<Pessoa> Obter(Pessoa pessoa)
         {
             Template template = _sqlBuilder.AddTemplate(SQL_SELECT);
 
@@ -88,47 +48,7 @@ O **Dapper.Custom.Extentions** é um pacote de extensão complementar para o [**
             }
         }
 
-        public void UpdatePessoa_SemExtension(Pessoa pessoa)
-        {
-            Template template = _sqlBuilder.AddTemplate(SQL_UPDATE);
-
-            //Filters
-
-            if (pessoa.IsNull())
-                return;
-
-            //Set           
-            if (!string.IsNullOrEmpty(pessoa.Nome))
-            {
-                _sqlBuilder.Set("Nome = @Nome", pessoa.Nome);
-            }
-
-            if (!string.IsNullOrEmpty(pessoa.Sobrenome))
-            {
-                _sqlBuilder.Set("Sobrenome = @Sobrenome", pessoa.Sobrenome);
-            }
-
-            if (pessoa.Idade > 0)
-            {
-                _sqlBuilder.Set("Idade = @Idade", pessoa.Idade);
-            }
-
-            if (pessoa.Altura > 0)
-            {
-                _sqlBuilder.Set("Altura = @Altura", pessoa.Altura);
-            }
-
-            //Where
-            _sqlBuilder.Where("Id = @Id", pessoa.Id);
-
-            //Query
-            using (var conn = new SqlConnection("ConnectioString"))
-            {
-                conn.Execute(template.RawSql, template.Parameters);
-            }
-        }
-
-        public void UpdatePessoa_ComExtension(Pessoa pessoa)
+        public void Update(Pessoa pessoa)
         {
             Template template = _sqlBuilder.AddTemplate(SQL_UPDATE);
 
@@ -153,4 +73,3 @@ O **Dapper.Custom.Extentions** é um pacote de extensão complementar para o [**
             }
         }
     }
-
